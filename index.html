@@ -4,26 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/mini-style.css">
+    <script>
+        function ClickFuncOpen() {
+            let CloseMenu = document.getElementById("Menulist").classList;
+            let ButtonMenu = document.getElementById("ButtonMenuOne").classList;
+            if(CloseMenu.contains("hidden")) {
+                CloseMenu.remove("hidden");
+                ButtonMenu.add("focus:text-blue-500");
+            } else {
+                CloseMenu.add("hidden");
+                ButtonMenu.remove("focus:text-blue-500");
+            };
+        }
+    </script>
     <title>MrRed0x | Portfolio</title>
 </head>
 <body class="h-screen bg-gray-950 font-rob overflow-hidden">
     <div class="relative py-4">
-        <nav class="flex flex-row items-center justify-between mx-10 py-5">
+        <nav class="flex flex-row items-center justify-between mx-3 lg:mx-10 py-2 md:py-5">
             <div class="pl-8">
                 <a href="/" class="text-white font-bold text-2xl transition ease-in-out delay-75 duration-300 hover:text-blue-500 cursor-pointer">MR.RED0X</a>
             </div>
-            <div class="flex flex-row pr-8 gap-x-9">
-                <a href="https://t.me/Maziyar_red0x" class="text-white font-normal tracking-widest text-sm/6 transition ease-in-out delay-75 duration-300 hover:text-blue-400 cursor-pointer">Telegram</a>
-                <a href="https://jobinja.ir/user/YB-4746268" class="text-white font-normal tracking-widest text-sm/6 transition ease-in-out delay-75 duration-300 hover:text-blue-400 cursor-pointer">My Resume</a>
+            <div class="md:flex flex-row pr-8 gap-x-9 hidden">
+                <a href="/" class="text-white font-normal tracking-widest text-sm/6 transition ease-in-out delay-75 duration-300 hover:text-blue-400 cursor-pointer">Telegram</a>
+                <a href="/" class="text-white font-normal tracking-widest text-sm/6 transition ease-in-out delay-75 duration-300 hover:text-blue-400 cursor-pointer">My Resume</a>
                 <a href="/" class="text-white font-normal tracking-widest text-sm/6 transition ease-in-out delay-75 duration-300 hover:text-blue-400 cursor-pointer">My Projects</a>
+            </div>
+            <div onclick="ClickFuncOpen()" id="MenuClosed" class="pr-3 z-50 mr-3 flex md:hidden">
+                <div x-data="{ open: false}">
+                    <button id="ButtonMenuOne" class="transition ease-in-out delay-75 focus:text-blue-500 relative w-10 h-10 focus:outline-none text-white duration-200" @click="open = !open">
+                        <span class="sr-only">Open main menu</span>
+                        <div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'rotate-45': open,' -translate-y-1.5': !open }"></span>
+                            <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'opacity-0': open } "></span>
+                            <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out" :class="{'-rotate-45': open, ' translate-y-1.5': !open}"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div id="Menulist" class="hidden h-screen w-52 bg-black fixed top-0 right-0">
+                <div class="flex items-center flex-col py-32 mx-auto gap-y-7 text-white">
+                    <a target="_blank" href="#" class="cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-blue-500 md:text-sm lg:text-base duration-300 md:focus:delay-75 md:focus:duration-75">Telegram</a>
+                    <a target="_blank" href="#" class="cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-blue-500 md:text-sm lg:text-base duration-300 md:focus:delay-75 md:focus:duration-75">My Resume</a>
+                    <a target="_blank" href="#" class="cursor-pointer transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:text-blue-500 md:text-sm lg:text-base duration-300 md:focus:delay-75 md:focus:duration-75">Projects</a>
+                </div>
             </div>
         </nav>
     </div>
-    <div class="flex justify-center items-center mx-auto mt-20">
+    <div class="flex justify-center items-center mt-20">
         <main class="flex flex-col items-center gap-y-9">
-            <img src="./src/assets/img/download.jpg" class="w-36 object-cover rounded-full h-36" alt="Github">
-            <p class="font-rob font-bold tracking-tight leading-tight text-white text-5xl max-w-xl text-center uppercase">Independent front-end web developer</p>
+            <a href="https://github.com/maziyar-redox" target="_blank">
+                <img src="./assets/img/download.jpg" class="w-32 h-32  md:w-36 md:h-36 object-cover rounded-full transition ease-in-out delay-75 duration-300 hover:-translate-y-1 hover:scale-110 cursor-pointer" alt="Github">
+            </a>
+            <p class="font-rob font-bold tracking-tight leading-tight text-white text-2xl md:text-3xl lg:text-5xl max-w-xl text-center uppercase">Independent front-end web developer</p>
             <button class="uppercase text-white/90 px-10 py-1.5 font-normal text-base text-center border border-white/90 transition ease-in-out delay-75 duration-300 hover:text-black hover:bg-white/90 cursor-pointer">See Projects</button>
         </main>
     </div>
