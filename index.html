@@ -4,12 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>MrRed0x | Portofilo</title>
+    <link rel="stylesheet" href="./src/assets/css/style.css">
+    <title>MrRed0x | Portfolio</title>
 </head>
-<body>
-    <div class="flex items-center justify-center h-screen">
-        <h1 class="font-bold text-3xl text-black">Coming soon...</h1>
+<body class="h-screen bg-gray-950 font-rob overflow-hidden">
+    <div class="relative py-4">
+        <nav class="flex flex-row items-center justify-between mx-10 py-5">
+            <div class="pl-8">
+                <a href="/" class="text-white font-bold text-2xl transition ease-in-out delay-75 duration-300 hover:text-blue-500 cursor-pointer">MR.RED0X</a>
+            </div>
+            <div class="flex flex-row pr-8 gap-x-9">
+                <a href="/" class="text-white font-normal tracking-widest text-sm/6 transition ease-in-out delay-75 duration-300 hover:text-blue-400 cursor-pointer">Telegram</a>
+                <a href="/" class="text-white font-normal tracking-widest text-sm/6 transition ease-in-out delay-75 duration-300 hover:text-blue-400 cursor-pointer">My Resume</a>
+                <a href="/" class="text-white font-normal tracking-widest text-sm/6 transition ease-in-out delay-75 duration-300 hover:text-blue-400 cursor-pointer">My Projects</a>
+            </div>
+        </nav>
+    </div>
+    <div class="flex justify-center items-center mx-auto mt-20">
+        <main class="flex flex-col items-center gap-y-9">
+            <img src="./src/assets/img/download.jpg" class="w-36 object-cover rounded-full h-36" alt="Github">
+            <p class="font-rob font-bold tracking-tight leading-tight text-white text-5xl max-w-xl text-center uppercase">Independent front-end web developer</p>
+            <button class="uppercase text-white/90 px-10 py-1.5 font-normal text-base text-center border border-white/90 transition ease-in-out delay-75 duration-300 hover:text-black hover:bg-white/90 cursor-pointer">See Projects</button>
+        </main>
     </div>
 </body>
 </html>
